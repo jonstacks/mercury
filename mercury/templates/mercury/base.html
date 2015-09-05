@@ -1,0 +1,72 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+      {% block meta %}
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="NONE,NOARCHIVE" />
+      {% endblock %}
+      <title>{% block title %}Mercury{% endblock %}</title>
+
+      {% block style %}
+        {% block foundation_theme %}
+          <link rel="stylesheet" type="text/css" href="{% static "mercury/css/normalize.css" %}" />
+          <link rel="stylesheet" type="text/css" href="{% static "mercury/css/foundation.min.css" %}" />
+          <link rel="stylesheet" type="text/css" href="{% static "mercury/css/app.css" %}" />
+        {% endblock %}
+      {% endblock %}
+      {% block head_scripts %}
+        <script src="{% static "mercury/js/vendor/modernizr.js" %}"></script>
+      {% endblock %}
+    {% endblock %}
+  </head>
+  {% block body %}
+  <body class="{% block body_class %}{% endblock %} container">
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+          <section class="middle tab-bar-section">
+            <h1 class="title">Mercury</h1>
+          </section>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          {% block left_off_canvas_menu %}
+            <ul class="off-canvas-list">
+              <li><label>Menu</label></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+            </ul>
+          {% endblock %}
+        </aside>
+
+        <section class="main-section">
+          {% block page_wrap %}
+            <div class="row">
+              <div class="large-12 columns">
+                {% block content %}<h1>Main Content</h1>{% endblock %}
+              </div>
+            </div>
+          {% endblock %}
+        </section>
+
+        <a class="exit-off-canvas"></a>
+      </div>
+    </div>
+
+    {% block body_scripts %}
+      <script src="{% static "mercury/js/vendor/jquery.js" %}"></script>
+      <script src="{% static "mercury/js/foundation.min.js" %}"></script>
+      <script>
+        $(document).foundation();
+      </script>
+    {% endblock %}
+  </body>
+  {% endblock %}
+</html>
