@@ -6,3 +6,7 @@ A Django Project for understanding your applications through pcap files
 Install requirements with:
 
     pip install -r requirements/base.txt
+
+Run Migrations:
+
+    ./manage.py migrate
