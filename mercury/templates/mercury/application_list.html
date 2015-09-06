@@ -1,0 +1,21 @@
+{% extends "mercury/base.html" %}
+
+{% block content %}
+<h3>Application List<small> (Showing apps {{ page_obj.start_index }} - {{ page_obj.end_index }} of {{ paginator.count }})</small></h3>
+<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+  {% for app in app_list %}
+    <li>
+      <a href="#">
+        <div class="panel">
+          <h5>{{ app }}<span class="label round right">{{ app.port }}</span></h5>
+          {% if app.name %}
+          <div class="section" style="border-top:solid 1px;">
+            <p>{{ app.name }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -16,6 +16,10 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from mercury.views import ApplicationList
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^app/$', ApplicationList.as_view(), name='app-list'),
 ]
