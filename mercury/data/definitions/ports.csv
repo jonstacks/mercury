@@ -1,0 +1,15 @@
+Number,Protocols,Application,Abbreviation
+9,UDP,Wake-on-LAN,""
+20,"TCP,UDP",File Transfer Protocol,FTP
+22,"TCP,UDP",Secure Shell,SSH
+23,"TCP,UDP",Telnet,""
+25,"TCP",Simple Mail Transfer Protocol,SMTP
+53,"TCP,UDP",Domain Name System,DNS
+80,TCP,Hypertext Transfer Protocol,HTTP
+88,"TCP,UDP",Kerberos,""
+139,"TCP,UDP",NetBIOS Session Service,NetBIOS
+443,TCP,Hypertext Transfer Protocol over TLS/SSL,HTTPS
+445,TCP,Microsoft-DS Active Directory,AD DS
+636,TCP,Lightweight Directory Access Protocol over TSL/SSL,LDAPS
+989,"TCP,UDP",FTP over TLS/SSL(data),FTPS
+990,"TCP,UDP",FTP over TLS/SSL(control),FTPS
