@@ -79,6 +79,9 @@ class Node(models.Model):
     def __str__(self):
         return self.dns_name if self.dns_name else self.ip_address
 
+    def get_absolute_url(self):
+        return reverse('node-detail', args=[str(self.id)])
+
 
 class PCAPFile(models.Model):
     """A PCAP File that stores the raw data we need to process. """

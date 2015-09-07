@@ -37,7 +37,7 @@
             <tbody>
               {% for c in clients %}
               <tr>
-                <td>{{ c }}</td>
+                <td><a href="{{ c.get_absolute_url }}">{{ c }}</a></td>
               </tr>
               {% endfor %}
             </tbody>
@@ -53,7 +53,7 @@
             <tbody>
               {% for s in servers %}
               <tr>
-                <td>{{ s }}</td>
+                <td><a href="{{ s.get_absolute_url }}">{{ s }}</td>
               </tr>
               {% endfor %}
             </tbody>

@@ -1,0 +1,53 @@
+{% extends "mercury/base.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="large-12 columns">
+    <h2>{{ node }}</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="large-6 columns">
+    <h3>Incoming Traffic</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Destination Port</th>
+          <th>Source Port</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in node.incoming_traffic.all %}
+        <tr>
+          {% with app=t.application %}
+          <td><a href="{% url 'app-detail' protocol=app.protocol port=app.port %}">{{ app }}</a></td>
+          {% endwith %}
+          <td><a href="{{ t.src_node.get_absolute_url }}">{{ t.src_node }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="large-6 columns">
+    <h3>Outgoing Traffic</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Destination Node</th>
+          <th>Destination Port</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in node.outgoing_traffic.all %}
+        <tr>
+          <td><a href="{{ t.src_node.get_absolute_url }}">{{ t.dst_node }}</a></td>
+          {% with app=t.application %}
+          <td><a href="{% url 'app-detail' protocol=app.protocol port=app.port %}">{{ app }}</a></td>
+          {% endwith %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -12,7 +12,7 @@
   <tbody>
     {% for n in node_list %}
     <tr>
-      <td>{{ n.ip_address }}</a></td>
+      <td><a href="{{ n.get_absolute_url }}">{{ n.ip_address }}</a></td>
       <td>{{ n.dns_name }}</td>
     </tr>
     {% endfor %}

@@ -32,6 +32,11 @@ class ApplicationList(ListView):
     paginate_by = 50
 
 
+class NodeDetail(DetailView):
+    context_object_name = 'node'
+    model = Node
+
+
 class NodeList(ListView):
     context_object_name = 'node_list'
     model = Node
