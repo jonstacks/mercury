@@ -1,0 +1,19 @@
+<div class="pagination-centered">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      {% with previous=page_obj.previous_page_number %}
+        <li class="arrow"><a href="?page={{ previous }}">&laquo;</a></li>
+        <li><a href="?page={{ previous }}">{{ page_obj.previous_page_number }}</a></li>
+      {% endwith %}
+    {% endif %}
+    <li class="current">
+      <a href="">{{ page_obj.number }}</a>
+    </li>
+    {% if page_obj.has_next %}
+      {% with next=page_obj.next_page_number %}
+        <li><a href="?page={{ next }}">{{ page_obj.next_page_number }}</a></li>
+        <li class="arrow"><a href="?page={{ next }}">&raquo;</a></li>
+      {% endwith %}
+    {% endif %}
+  </ul>
+</div>
