@@ -1,0 +1,21 @@
+{% extends "mercury/base.html" %}
+
+{% block content %}
+<h3>Node List<small> (Showing {{ node_list.count }} results)</small></h3>
+<table>
+  <thead>
+    <tr>
+      <th>IP</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for n in node_list %}
+    <tr>
+      <td>{{ n.ip_address }}</a></td>
+      <td>{{ n.dns_name }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

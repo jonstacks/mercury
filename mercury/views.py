@@ -30,3 +30,8 @@ class ApplicationList(ListView):
     context_object_name = 'app_list'
     model = Application
     paginate_by = 50
+
+
+class NodeList(ListView):
+    context_object_name = 'node_list'
+    model = Node

@@ -19,6 +19,7 @@ from django.contrib import admin
 from mercury.views import (
     ApplicationDetail,
     ApplicationList,
+    NodeList,
 )
 
 urlpatterns = [
@@ -26,5 +27,6 @@ urlpatterns = [
 
     url(r'^app/$', ApplicationList.as_view(), name='app-list'),
     url(r'^app/(?P<protocol>\w+)/(?P<port>\d+)/$', ApplicationDetail.as_view(),
-        name='app-detail')
+        name='app-detail'),
+    url(r'^nodes/$', NodeList.as_view(), name='node-list')
 ]
