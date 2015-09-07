@@ -1,0 +1,65 @@
+{% extends "mercury/base.html" %}
+
+{% block page_wrap %}
+<div class="row full-width">
+  <div class="large-2 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <h2>{{ app }}</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <table>
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <td>{{ app.name|default:"UNKNOWN" }}
+            </tr>
+            <tr>
+              <th>Port</th>
+              <td>{{ app.port }}</td>
+            </tr>
+            <tr>
+              <th>Protocol</th>
+              <td>{{ app.protocol }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="large-5 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <h2>Clients<h2>
+          <table>
+            <tbody>
+              {% for c in clients %}
+              <tr>
+                <td>{{ c }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <div class="large-5 columns">
+    <div class="row">
+      <div class="large-12 columns">
+        <h2>Servers<h2>
+          <table>
+            <tbody>
+              {% for s in servers %}
+              <tr>
+                <td>{{ s }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

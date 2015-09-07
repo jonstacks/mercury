@@ -16,10 +16,15 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from mercury.views import ApplicationList
+from mercury.views import (
+    ApplicationDetail,
+    ApplicationList,
+)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^app/$', ApplicationList.as_view(), name='app-list'),
+    url(r'^app/(?P<protocol>\w+)/(?P<port>\d+)/$', ApplicationDetail.as_view(),
+        name='app-detail')
 ]

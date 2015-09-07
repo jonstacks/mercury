@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from django.core.urlresolvers import reverse
 from hurry.filesize import size
 
 from mercury.fields import PortField
@@ -24,6 +25,10 @@ class Application(models.Model):
         if self.name:
             return self.name
         return str(self.port)
+
+    def get_absolute_url(self):
+        return reverse('app-detail', kwargs={
+            'protocol': self.protocol.abbreviation, 'port': self.port})
 
 
 class ApplicationTraffic(models.Model):
