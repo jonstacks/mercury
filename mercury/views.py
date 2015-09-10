@@ -1,8 +1,12 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, ListView
+from django.views.generic.base import TemplateView
+from django_ajax.decorators import ajax
 
+from mercury.graphing import NodeGraphBuilder
 from mercury.models import (
     Application,
+    ApplicationTraffic,
     Node,
 )
 
@@ -40,3 +44,18 @@ class NodeDetail(DetailView):
 class NodeList(ListView):
     context_object_name = 'node_list'
     model = Node
+
+
+class TrafficMap(TemplateView):
+    template_name = 'mercury/traffic_map.html'
+
+@ajax
+def application_traffic(request):
+    """
+    Builds the JSON for the D3 Visualization
+    """
+    builder = NodeGraphBuilder()
+    links = ApplicationTraffic.objects.select_related('dst_node', 'src_node')
+    for l in links:
+        builder.add_link(l.src_node, l.dst_node)
+    return builder.to_hash()
