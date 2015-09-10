@@ -27,13 +27,17 @@ ajaxGet('/api/app-traffic', function(graph){
 
     var node = svg.selectAll(".node")
       .data(graph.nodes)
-      .enter().append("circle")
+      .enter()
+    .append("svg:a")
+      .attr("xlink:href", function(d) { return d.url; })
+    .append("circle")
       .attr("class", "node")
       .attr("r", 5)
       .style("fill", function(d){ return color(d.group); })
       .call(force.drag);
 
-    node.append("title").text(function(d) { return d.ip; });
+    node.append("title")
+      .text(function(d) { return d.name; });
 
     force.on("tick", function(){
       link.attr("x1", function(d) { return d.source.x; })

@@ -22,8 +22,7 @@ class NodeGraphBuilder:
     def to_hash(self):
         nodes = map(lambda x: {
             "ip": x.ip_address,
-            "names": [
-                x.dns_name,
-            ],
+            "url": x.get_absolute_url(),
+            "name": str(x),
         }, self.nodes)
         return { "nodes": list(nodes), "links": self.links }
