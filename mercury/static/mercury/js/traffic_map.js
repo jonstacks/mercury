@@ -8,7 +8,7 @@ var force = d3.layout.force()
     .charge(-120)
     .size([width, height]);
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("section.main-section").append("svg")
     .attr("width", width)
     .attr("height", height);
 
