@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block extra_body_scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script type="text/javascript" src="{% static "mercury/js/d3.min.js" %}"></script>
 <script type="text/javascript" src="{% static "django_ajax/js/jquery.ajax.min.js" %}"></script>
 <script type="text/javascript" src="{% static "mercury/js/traffic_map.js" %}"></script>
 {% endblock %}
