@@ -1,0 +1,16 @@
+{% extends "mercury/base.html" %}
+{% load staticfiles %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static "mercury/css/traffic_map.css" %}" />
+{% endblock %}
+
+{% block extra_body_scripts %}
+<script type="text/javascript" src="{% static "mercury/js/d3.min.js" %}"></script>
+<script type="text/javascript" src="{% static "django_ajax/js/jquery.ajax.min.js" %}"></script>
+<script type="text/javascript" src="{% static "mercury/js/traffic_map.js" %}"></script>
+{% endblock %}
+
+{% block content %}
+<h3>Application Map</h3>
+{% endblock %}

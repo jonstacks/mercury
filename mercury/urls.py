@@ -21,6 +21,8 @@ from mercury.views import (
     ApplicationList,
     NodeDetail,
     NodeList,
+    TrafficMap,
+    application_traffic,
 )
 
 urlpatterns = [
@@ -31,4 +33,7 @@ urlpatterns = [
         name='app-detail'),
     url(r'^nodes/$', NodeList.as_view(), name='node-list'),
     url(r'^nodes/(?P<pk>\d+)/$', NodeDetail.as_view(), name='node-detail'),
+    url(r'^traffic/map/$', TrafficMap.as_view(), name='traffic-map'),
+
+    url(r'^api/app-traffic/$', application_traffic),
 ]
