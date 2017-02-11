@@ -21,3 +21,20 @@ Process data from a pcap file with:
 Run the server to view the data:
 
     ./manage.py runserver
+
+## Getting started with Docker
+
+A `Dockerfile` and `docker-compose.yaml` have been included in order to get
+up and running faster. This will also help give a consistent development
+experience across platforms. To get started, just run
+
+```
+docker-compose up -d
+```
+
+and open http://localhost in your browser. You will still need to run the
+initial migration which you can do by running:
+
+```
+docker-compose run --rm mercury manage.py migrate
+```

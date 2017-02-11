@@ -1,0 +1,21 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: mercury
+      POSTGRES_PASSWORD: mercury
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+  mercury:
+    image: mercury
+    build: .
+    links:
+      - postgres:db
+    ports:
+      - "80:80"
+
+volumes:
+  pgdata:
